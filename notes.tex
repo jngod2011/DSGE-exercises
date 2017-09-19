@@ -4,7 +4,13 @@
 \usepackage[margin=3cm]{geometry}
 \usepackage[onehalfspacing]{setspace}
 
-\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsmath, amssymb, amsfonts}
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
 
 \author{
 	Andrea Pasqualini \\
@@ -25,9 +31,33 @@
 
 	\subsection{The Environment}
 		\subsubsection{Firms}
+			Final good producers:
+			\begin{align*}
+				\max_{{(Y_t(j))}_{j\in[0,1]}} &\;
+					P_t Y_t - \int_0^1 P_t(j) Y_t(j) \; dj \\
+				\text{s.t.} &\;
+					Y_t = {\left[ \int_0^1 {Y_t(j)}^{1-\nu} \; dj \right]}^{\frac{1}{1-\nu}}.
+			\end{align*}
+			First order conditions imply the demand for each intermediate good:
+			\begin{align*}
+				Y_t(j) &= {\left[ \dfrac{P_t(j)}{P_t} \right]}^{-\frac{1}{\nu}} Y_t & \forall\ j \in [0,1].
+			\end{align*}
 
+			Intermediate goods producers produce with:
+			\begin{align*}
+				Y_t(j) &= A_t N_t(j) & \forall\ j \in [0,1].
+			\end{align*}
+			They set prices subject to quadratic adjustment costs:
+			\begin{align*}
+				AC_t(j) &= \dfrac{\phi}{2} {\left[ \dfrac{P_t(j)}{P_{t-1}(j)} - \pi \right]}^2 Y_t(j) & \forall\ j \in [0,1],
+			\end{align*}
+			and each firm $j$ solves the following at each period $t$:
+			\begin{align*}
+				\max_{N_t(j), P_t(j)} &\;
+					\E_t \left( \sum_{s=0}^{\infty} \beta^s Q_{t+s|t} \left[ \dfrac{P_{t+s}(j)}{P_{t+s}} Y_{t+s}(j) - W_{t+s} N_{t+s}(j) - AC_{t+s}(j) \right] \right).
+			\end{align*}
 
-		\subsubsection{Consumers}
+		\subsubsection{Households}
 
 
 		\subsubsection{Exogenous Processes}
